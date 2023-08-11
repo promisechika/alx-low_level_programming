@@ -1,9 +1,9 @@
 #include <stdio.h>
 
 /**
- * main - main function
+ * main - function to print combination of two numbers
  *
- * Return: always 0
+ * Return: 0 on success
  */
 
 int main(void)
@@ -31,7 +31,7 @@ int main(void)
 			}
 			j++;
 		}
-		j = '0 ;
+		j = '0';
 		i++;
 	}
 return (0);
