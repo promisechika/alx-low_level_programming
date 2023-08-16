@@ -15,10 +15,21 @@ int main(void)
 
 	printf("%lu, %lu", a, b);
 
-	for (i = 2 ; i <= 98 ; ++i)
+	for (i = 2 ; i = 98 ; ++i)
 	{
 		c = a + b;
-		printf(", %lu", c);
+
+		printf(", ");
+
+		unsigned long int temp = c;
+		unsigned long int divisor = 1000000000;
+
+		while (divisor > 0)
+		{
+			printf("%lu", temp / divisor);
+			temp %= divisor;
+			divisor /= 10;
+		}
 
 		a = b;
 		b = c;
