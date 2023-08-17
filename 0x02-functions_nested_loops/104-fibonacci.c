@@ -7,33 +7,20 @@
 
 int main(void)
 {
-	unsigned int i;
-	unsigned long int a, b, c;
+	int i = 0;
+	unsigned long int a = 0, b = 1, next = 0;
 
-	a = 1;
-	b = 2;
-
-	printf("%lu, %lu", a, b);
-
-	for (i = 2 ; i < 98 ; ++i)
+	while (i < 98)
 	{
-		c = a + b;
-
-		printf(", ");
-
-		unsigned long int temp = c;
-		unsigned long int divisor = 1000000000;
-
-		while (divisor > 0)
-		{
-			printf("%lu", temp / divisor);
-			temp %= divisor;
-			divisor /= 10;
-		}
-
+		next = a + b;
 		a = b;
-		b = c;
+		b = next;
+		printf("%lu", next);
+
+		if (i < 97)
+			printf(", ");
+		i++;
 	}
-	printf("\n");
+	putchar('\n');
 	return (0);
 }
