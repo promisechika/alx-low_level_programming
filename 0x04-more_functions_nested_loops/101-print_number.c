@@ -3,7 +3,6 @@
 /**
  * print_number - function that prints an integer
  * @n: print an integer
- * Return: void
  */
 
 void print_number(int n)
@@ -13,7 +12,7 @@ void print_number(int n)
 	if (n < 0)
 	{
 		n1 = -n;
-		_putchar('_');
+		_putchar('-');
 	}
 	else
 	{
