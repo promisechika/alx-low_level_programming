@@ -4,57 +4,55 @@
 #include <string.h>
 
 /**
- * main - program that adds positive numbers
+ * check_num - check string for digit
+ * @str:array str
+ * Return: always 0
+ */
+
+int check_num(char *str)
+{
+	unsigned int count;
+
+	count = 0;
+	while (count < strlen(str))
+	{
+		if (!isdigit(str[count]))
+		{
+			return (0);
+		}
+		count++;
+	}
+	return (1);
+}
+
+/**
+ * main - print the name of the program
  * @argc: argument count
  * @argv: argument vector
- * Return: 0 or 1
+ * Return: always 0
  */
 
 int main(int argc, char *argv[])
 {
-	int i, j;
+	int count;
+	int str_to_int;
 	int sum = 0;
 
-	if (argc == 0)
+	count = 1;
+	while (count < argc)
 	{
-		printf("0\n");
-		return (0);
-	}
-	
-	for (i = 1 ; i < argc ; i++)
-	{
-		char *arg = argv[i];
-
-		for (j = 0 ; arg[j] != '\0' ; j++)
+		if (check_num(argv[count]))
 		{
-			if (!isdigit(arg[j]))
-			{
-				printf("Error\n");
-				return (1);
-			}
+			str_to_int = atoi(argv[count]);
+			sum += str_to_int;
 		}
-		sum += atoi(arg);
+		else
+		{
+			printf("Error\n");
+			return (1);
+		}
+		count++;
 	}
 	printf("%d\n", sum);
 	return (0);
-}
-
-/**
- * is_positive_integer - check if a string is a positive integer
- * @s: string
- * Return: 1 or 0
- */
-
-int is_positive_integer(char *s)
-{
-	if (*s == '\0')
-		return (0);
-
-	while (*s)
-	{
-		if (!isdigit(*s))
-			return (0);
-		s++;
-	}
-	return (1);
 }
