@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
+#include "main.h"
 
 /**
  * main - program that adds positive numbers
@@ -36,4 +37,24 @@ int main(int argc, char *argv[])
 	}
 	printf("%d\n", sum);
 	return (0);
+}
+
+/**
+ * is_positive_integer - check if a string is a positive integer
+ * @s: string
+ * Return: 1 or 0
+ */
+
+int is_positive_integer(char *s)
+{
+	if (*s == '\0')
+		return (0);
+
+	while (*s)
+	{
+		if (!isdigit(*s))
+			return (0);
+		s++;
+	}
+	return (1);
 }
