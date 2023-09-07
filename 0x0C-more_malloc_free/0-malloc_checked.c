@@ -3,12 +3,16 @@
 /**
  * malloc_checked - function that allocates memory using malloc
  * @b: the number of bytes to allocate
- * Return: pointer or terminate the entire process with value of 98
+ * Return: void
  */
 
 void *malloc_checked(unsigned int b)
 {
-	void *ptr = malloc(b);
+	char *output;
 
-	return (ptr);
+	output = malloc(b);
+	if (output == NULL)
+		exit(98);
+	else
+		return (output);
 }
